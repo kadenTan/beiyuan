@@ -211,14 +211,20 @@ const flowSteps = [
     </section>
 
     <!-- Section 6: CTA -->
-    <section class="px-[128px] max-lg:px-8 max-sm:px-4 py-[90px] max-sm:py-12 bg-white">
-      <div class="max-w-[1240px] mx-auto flex max-lg:flex-col items-center max-lg:items-start justify-between gap-8">
+    <section class="px-[128px] max-lg:px-8 max-sm:px-4 py-[90px] max-sm:py-14 w-full" style="background: linear-gradient(to bottom, #182aa5, #09103f)">
+      <div class="max-w-[1098px] mx-auto flex items-center justify-between gap-8 max-lg:flex-col max-lg:items-start">
         <div class="max-w-[780px]">
-          <h2 class="font-semibold text-[clamp(28px,4vw,64px)] leading-[1.15] text-ink mb-4">让作品先有凭证，再进入展示、参赛和授权。</h2>
-          <p class="text-[16px] max-sm:text-[14px] text-muted leading-[1.6]">对原创内容来说，真正的风险不是没人看见，而是被看见之后无法证明来源。现在开始为文字、图片、视频和数字作品建立链上存证，让每一次发布、参赛和授权都有据可查。</p>
+          <h2 class="font-semibold text-[clamp(32px,5vw,60px)] leading-[1.13]" :style="{ background: 'linear-gradient(to bottom, #faedc5, #dbbd78)', '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent' }">让作品先有凭证，再进入展示、参赛和授权。</h2>
+          <p class="text-[17px] max-sm:text-[15px] leading-[1.8] mt-[18px]" style="color: #dccfbb">对原创内容来说，真正的风险不是没人看见，而是被看见之后无法证明来源。现在开始为文字、图片、视频和数字作品建立可信记录。</p>
         </div>
-        <button @click="goCertify" class="inline-flex items-center gap-2 h-14 px-6 rounded-xl text-[16px] font-semibold text-white hover:opacity-90 transition-opacity shrink-0 max-sm:w-full max-sm:justify-center"
-          :style="{ background: GRADIENT_03 }">开始存证<svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"/></svg></button>
+        <button @click="goCertify" class="relative inline-flex items-center gap-2 h-14 px-6 rounded-xl text-[16px] font-normal text-white shrink-0 max-sm:w-full max-sm:justify-center hover:opacity-90 transition-opacity border border-[#b5edff]"
+          :style="{
+            background: 'linear-gradient(153.4deg, #214fd6 0%, #5383eb 100%)',
+            filter: 'drop-shadow(0 18px 22px rgba(33,79,214,0.34))',
+          }">
+          开始存证
+          <img src="/assets/figma/imgArrowRightUpLong.svg" alt="" class="size-5" />
+        </button>
       </div>
     </section>
   </div>
