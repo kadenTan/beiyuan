@@ -82,7 +82,7 @@ const flowSteps = [
           </div>
           <!-- 大标题 -->
           <h1 class="font-extrabold text-[clamp(36px,5vw,80px)] leading-[1.1] max-w-[706px]"
-            :style="{ background: 'linear-gradient(to bottom, #fff, #dbbd78)', '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent', textShadow: '0 9px 12px rgba(0,0,0,0.72)', filter: 'drop-shadow(0 9px 12px rgba(0,0,0,0.72))' }">让每一份原创内容，都拥有可核验的数字凭证</h1>
+            :style="{ background: 'linear-gradient(to bottom, #fff, #dbbd78)', '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent', filter: 'drop-shadow(0 9px 12px rgba(0,0,0,0.72))' }">让每一份原创内容，都拥有可核验的数字凭证</h1>
           <!-- 描述 -->
           <p class="text-[18px] max-sm:text-[15px] leading-[26px] text-white/80 max-w-[670px]">文字、图片、视频、音频、设计稿、证书、合同和数字作品，一旦发布、参赛、展示或授权使用，就可能产生来源、时间和权属争议。贝圆存证中心通过区块链存证、文昌链对接及版权登记服务，为内容建立可查询、可核验、可追溯的数字证明。</p>
           <!-- 按钮组 -->
