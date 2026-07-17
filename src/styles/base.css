@@ -1,0 +1,43 @@
+/* 贝圆 设计令牌 — 源自 Figma "最终版本" */
+@import 'tailwindcss';
+
+@theme {
+  --color-white: #ffffff;
+  --color-accent: #b3321f;
+  --color-accent-dark: #7c1f12;
+  --color-navy: #09103f;
+  --color-navy-mid: #2e365a;
+  --color-ink: #1a1410;
+  --color-muted: #6e6258;
+  --color-gold-light: #dccfbb;
+  --color-gold: #dbbd78;
+  --color-gold-pale: #faedc5;
+  --color-blue: #1888ff;
+  --color-blue-mid: #214fd6;
+  --color-blue-light: #5383eb;
+  --color-blue-pale: #b5edff;
+  --color-line: #d8cab4;
+  --color-border-light: #dddddd;
+  --color-bg-card: #f2f9ff;
+  --color-paper: #faf4ea;
+
+  --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-heading: 'Alimama ShuHeiTi', 'PingFang SC', sans-serif;
+  --font-logo: 'Alimama DongFangDaKai', 'PingFang SC', sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  a, button, [role="button"], .cursor-pointer { cursor: pointer; }
+  body { margin: 0; font-family: var(--font-sans); color: var(--color-ink); background: var(--color-white); }
+  img { max-width: 100%; height: auto; display: block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
