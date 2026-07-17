@@ -218,16 +218,16 @@ function closeMenu(href) {
 /* 液态玻璃效果 — 支持 CSS backdrop-filter 的浏览器生效 */
 .nav-glass {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.55) 100%);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
-  box-shadow: 0 1px 0 0 rgba(255,255,255,0.3) inset, 0 4px 24px 0 rgba(0,0,0,0.06);
+    linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.65) 100%);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  box-shadow: 0 1px 0 0 rgba(255,255,255,0.4) inset, 0 8px 32px 0 rgba(0,0,0,0.08);
 }
 
 /* 不支持的浏览器兜底 */
 @supports not (backdrop-filter: blur(1px)) {
   .nav-glass {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
