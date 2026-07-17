@@ -75,7 +75,8 @@ function closeMenu(href) {
 
 <template>
   <header
-    class="fixed top-0 left-0 z-50 flex items-center h-[88px] max-md:h-[64px] px-[54px] max-lg:px-6 max-md:px-4 w-full border-b border-white/10 nav-glass"
+    class="fixed top-0 left-0 z-50 flex items-center h-[88px] max-md:h-[64px] px-[54px] max-lg:px-6 max-md:px-4 w-full border-b border-white/10"
+    style="background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.7) 100%); backdrop-filter: blur(40px) saturate(1.8) brightness(1.05); -webkit-backdrop-filter: blur(40px) saturate(1.8) brightness(1.05); box-shadow: 0 1px 0 0 rgba(255,255,255,0.5) inset, 0 12px 40px 0 rgba(0,0,0,0.1);"
   >
     <!-- Logo -->
     <router-link to="/" class="flex items-center shrink-0" @click="closeMenu">
@@ -215,21 +216,12 @@ function closeMenu(href) {
 </template>
 
 <style scoped>
-/* 液态玻璃效果 — 支持 CSS backdrop-filter 的浏览器生效 */
-.nav-glass {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.7) 100%);
-  backdrop-filter: blur(40px) saturate(1.8) brightness(1.05);
-  -webkit-backdrop-filter: blur(40px) saturate(1.8) brightness(1.05);
-  box-shadow: 0 1px 0 0 rgba(255,255,255,0.5) inset, 0 12px 40px 0 rgba(0,0,0,0.1);
-}
-
 /* 不支持的浏览器兜底 */
 @supports not (backdrop-filter: blur(1px)) {
-  .nav-glass {
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+  header[style*="backdrop-filter"] {
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
 
