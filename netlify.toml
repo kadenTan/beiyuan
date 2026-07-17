@@ -2,6 +2,9 @@
   command = "npm run build"
   publish = "dist"
 
+[site]
+  name = "beiyuanfilm"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
