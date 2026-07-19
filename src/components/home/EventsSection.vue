@@ -8,7 +8,7 @@ import siteContent from '@/data/site-content.js'
 
 const showSignup = ref(false)
 const signupEvent = ref('')
-const events = (siteContent.events || []).slice(0, 3)
+const events = (siteContent.events || []).slice(0, 6)
 const imgs = siteContent.home?.eventImages || []
 
 // sm 以下放弃 TextReveal，避免 SplitText 换行导致的消失问题
