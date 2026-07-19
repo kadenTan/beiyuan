@@ -49,7 +49,7 @@ const grads = [
         <article
           v-for="(item, idx) in events"
           :key="idx"
-          class="relative flex flex-col justify-end w-full h-[420px] md:h-[460px] overflow-hidden rounded-[4px] border-[0.711px] border-[#f0c24f] cursor-pointer group transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(240,194,79,0.25)]"
+          class="relative flex flex-col w-full h-[420px] md:h-[460px] overflow-hidden rounded-[4px] border-[0.711px] border-[#f0c24f] cursor-pointer group transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(240,194,79,0.25)]"
           @click="router.push(`/events/${idx}`)"
         >
           <!-- 背景图 -->
