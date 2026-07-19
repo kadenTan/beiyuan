@@ -78,8 +78,8 @@ const desc = '贝元民族影像产业科创平台面向民族艺术创作者、
               进入课程学习
             </a>
             <a href="/#/evidence"
-              class="flex items-center justify-center h-[56px] min-h-[40px] px-[25px] py-px rounded-[12px] border border-[#faedc5]/40 text-[16px] text-[#faedc5] max-md:w-full hover:bg-[#faedc5]/10 transition-colors"
-              style="background: rgba(250,237,197,0.08)">
+              class="flex items-center justify-center h-[56px] min-h-[40px] px-[25px] py-px rounded-[12px] border border-white text-[16px] text-white max-md:w-full"
+              style="background: rgba(255,255,255,0.1)">
               进入数字版权中心
             </a>
           </div>

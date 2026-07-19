@@ -81,11 +81,11 @@ function isEnded(status) {
         </div>
 
         <!-- 赛事卡片列表：桌面2列 / 移动端1列 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-[128px] max-lg:px-8 max-sm:px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 px-[128px] max-lg:px-8 max-sm:px-4">
           <article
             v-for="(item, idx) in filtered"
             :key="idx"
-            class="relative flex flex-col justify-end h-[420px] md:h-[460px] max-sm:h-[340px] w-full overflow-hidden rounded-[4px] cursor-pointer group transition-shadow duration-300 shadow-[0_0_20px_rgba(240,194,79,0.15)] hover:shadow-[0_0_40px_rgba(240,194,79,0.30)]"
+            class="relative flex flex-col justify-center h-[420px] md:h-[460px] max-sm:h-[340px] w-full overflow-hidden rounded-[4px] border-[0.711px] border-[#f0c24f] cursor-pointer group transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(240,194,79,0.25)]"
             @click="router.push({ name: 'event-detail', params: { id: idx } })"
           >
             <!-- 背景图片 -->
@@ -104,33 +104,30 @@ function isEnded(status) {
             />
 
             <!-- 内容区 -->
-            <div class="relative z-10 flex flex-col gap-[10px] max-sm:gap-[8px] px-6 lg:px-8 py-8 lg:py-12 max-sm:py-10 w-full">
+            <div class="relative z-10 flex flex-col gap-[8px] max-sm:gap-[6px] px-6 lg:px-8 pt-2 lg:pt-3 pb-6 lg:pb-8 max-sm:py-8 w-full">
               <!-- 状态标签 -->
-              <div class="bg-bg-card inline-flex items-start px-[12px] py-[4px] rounded-[4px] w-fit">
-                <span
-                  class="font-semibold text-[13px] leading-[20.8px] whitespace-nowrap"
-                  :class="isEnded(item[0]) ? 'text-accent' : 'text-blue'"
-                >{{ item[0] }}</span>
+              <div class="flex h-[29px] items-start px-[12px] py-[4px] rounded-[4px] bg-navy w-fit">
+                <span class="font-semibold text-[13px] text-white whitespace-nowrap">{{ item[0] }}</span>
               </div>
 
               <!-- 标题 + 描述 -->
               <div class="flex flex-col gap-[8px]">
                 <p
-                  class="font-semibold text-[36px] md:text-[40px] lg:text-[48px] max-sm:text-[36px] leading-[1.1]"
-                  :style="{ background: GRADIENT_GOLD, '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent' }"
+                  class="font-semibold text-[40px] md:text-[48px] lg:text-[56px] max-sm:text-[36px] leading-[1.1]"
+                  style="background: linear-gradient(to bottom, #faedc5, #dbbd78); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));"
                 >{{ item[2] }}</p>
-                <p class="text-[14px] md:text-[15px] leading-[22px] text-white line-clamp-2">{{ item[3] }}</p>
+                <p class="text-[15px] md:text-[16px] leading-[22px] text-white">{{ item[3] }}</p>
               </div>
 
               <!-- 举办形式 + 时间 -->
-              <div class="flex gap-[16px] lg:gap-[24px] max-sm:gap-[12px]">
+              <div class="flex gap-[16px] lg:gap-[24px] max-sm:gap-[8px]">
                 <div class="flex flex-col">
-                  <p class="text-[12px] lg:text-[13px] leading-[20.8px] text-white/80">举办形式</p>
-                  <p class="font-semibold text-[14px] lg:text-[16px] leading-[25.6px] text-white whitespace-nowrap">{{ item[1] }}</p>
+                  <p class="text-[13px] text-white/80">举办形式</p>
+                  <p class="font-semibold text-[14px] lg:text-[16px] text-white whitespace-nowrap">{{ item[1] }}</p>
                 </div>
                 <div class="flex flex-col">
-                  <p class="text-[12px] lg:text-[13px] leading-[20.8px] text-white/80">时间</p>
-                  <p class="font-semibold text-[14px] lg:text-[16px] leading-[25.6px] text-white whitespace-nowrap">{{ item[4] }}</p>
+                  <p class="text-[13px] text-white/80">时间</p>
+                  <p class="font-semibold text-[14px] lg:text-[16px] text-white whitespace-nowrap">{{ item[4] }}</p>
                 </div>
               </div>
 
@@ -138,14 +135,12 @@ function isEnded(status) {
               <div class="flex gap-[12px] items-center max-sm:flex-col">
                 <button
                   @click.stop="signupEvent = item[2]; showSignup = true"
-                  class="inline-flex items-center justify-center px-[25px] py-[9px] rounded-[12px] border border-blue-pale text-[16px] font-semibold text-white text-center whitespace-nowrap hover:opacity-90 transition-opacity cursor-pointer"
-                  :style="{ background: GRADIENT_03 }"
+                  class="inline-flex items-center justify-center h-[32px] px-[12px] rounded-[4px] border border-white/40 text-[12px] text-white hover:bg-white/10 transition-colors w-fit cursor-pointer"
                 >
                   立即报名
                 </button>
                 <button
-                  class="inline-flex items-center justify-center px-[25px] py-[9px] rounded-[12px] border border-white text-[16px] font-medium text-white text-center whitespace-nowrap hover:bg-white/20 transition-colors"
-                  style="background: rgba(255,255,255,0.1)"
+                  class="inline-flex items-center justify-center h-[32px] px-[12px] rounded-[4px] border border-white/40 text-[12px] text-white hover:bg-white/10 transition-colors w-fit cursor-pointer"
                 >
                   查看详情
                 </button>
