@@ -45,7 +45,7 @@ const grads = [
       <FigmaHeading title="赛事中心" subtitle="Latest Events" tone="gold" />
 
       <!-- 赛事卡片：网格布局，桌面2列 / 移动端1列 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-[960px] mx-auto max-md:px-6 max-sm:px-0">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-[1240px] mx-auto max-md:px-6 max-sm:px-0">
         <article
           v-for="(item, idx) in events"
           :key="idx"
