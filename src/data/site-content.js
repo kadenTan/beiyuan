@@ -383,14 +383,14 @@ export default {
   ],
   // 专家评委
   experts: [
-    { name: "张明远", title: "民族文化研究专家", avatar: "assets/avater.png", bio: "中央民族大学教授，博士生导师，长期从事民族文化艺术研究与数字化保护工作，主持多项国家级非遗影像课题。" },
-    { name: "李思源", title: "AIGC 技术顾问", avatar: "assets/avater.png", bio: "浙江大学计算机学院副教授，AI 生成内容方向学术带头人，多个国际顶会 AI 艺术创作 workshop 联合主席。" },
-    { name: "王雨桐", title: "影像评审专家", avatar: "assets/avater.png", bio: "中国电影家协会会员，独立纪录片导演，多部作品入围国际电影节并获最佳纪录片奖项。" },
-    { name: "陈博文", title: "区块链存证专家", avatar: "assets/avater.png", bio: "文昌链技术委员会成员，区块链版权保护方向资深研究员，主持多个文博类链上存证项目。" },
-    { name: "赵晓燕", title: "文创产业导师", avatar: "assets/avater.png", bio: "清华大学文创研究院特聘导师，曾任故宫文创产品设计总监，文创 IP 商业化专家。" },
-    { name: "刘建国", title: "数字艺术策展人", avatar: "assets/avater.png", bio: "中国美术馆数字艺术部策展人，策划多个国家级数字艺术大展，推动 AI 艺术进入主流艺术语境。" },
-    { name: "周明慧", title: "非遗传承推广大使", avatar: "assets/avater.png", bio: "国家级非遗项目代表性传承人，致力于将传统技艺与现代数字技术结合，培养新一代非遗创客。" },
-    { name: "吴建华", title: "教育技术专家", avatar: "assets/avater.png", bio: "北京师范大学教育技术学院教授，AI 教育应用方向资深研究者，多省市 AI 教育试点项目专家顾问。" },
+    { name: "张明远", title: "民族文化研究专家", avatar: "assets/experts/expert_2.png", bio: "中央民族大学教授，博士生导师，长期从事民族文化艺术研究与数字化保护工作，主持多项国家级非遗影像课题。" },
+    { name: "李思源", title: "AIGC 技术顾问", avatar: "assets/experts/expert_3.png", bio: "浙江大学计算机学院副教授，AI 生成内容方向学术带头人，多个国际顶会 AI 艺术创作 workshop 联合主席。" },
+    { name: "王雨桐", title: "影像评审专家", avatar: "assets/experts/expert_4.png", bio: "中国电影家协会会员，独立纪录片导演，多部作品入围国际电影节并获最佳纪录片奖项。" },
+    { name: "陈博文", title: "区块链存证专家", avatar: "assets/experts/expert_5.png", bio: "文昌链技术委员会成员，区块链版权保护方向资深研究员，主持多个文博类链上存证项目。" },
+    { name: "赵晓燕", title: "文创产业导师", avatar: "assets/experts/expert_6.png", bio: "清华大学文创研究院特聘导师，曾任故宫文创产品设计总监，文创 IP 商业化专家。" },
+    { name: "刘建国", title: "数字艺术策展人", avatar: "assets/experts/expert_7.png", bio: "中国美术馆数字艺术部策展人，策划多个国家级数字艺术大展，推动 AI 艺术进入主流艺术语境。" },
+    { name: "周明慧", title: "非遗传承推广大使", avatar: "assets/experts/expert_2.png", bio: "国家级非遗项目代表性传承人，致力于将传统技艺与现代数字技术结合，培养新一代非遗创客。" },
+    { name: "吴建华", title: "教育技术专家", avatar: "assets/experts/expert_3.png", bio: "北京师范大学教育技术学院教授，AI 教育应用方向资深研究者，多省市 AI 教育试点项目专家顾问。" },
   ],
   evidence: {
     title: "为 AIGC 虚拟作品建立可查询、可核验、可追溯的链上证明。",
