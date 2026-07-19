@@ -44,8 +44,8 @@ const grads = [
     <div class="flex flex-col gap-[64px] items-center w-full relative z-[1]">
       <FigmaHeading title="赛事中心" subtitle="Latest Events" tone="gold" />
 
-      <!-- 赛事卡片：网格布局，lg 3列 / md 2列 / sm 1列 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 w-full max-w-[1280px] mx-auto max-md:px-6 max-sm:px-0">
+      <!-- 赛事卡片：网格布局，桌面2列 / 移动端1列 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-[960px] mx-auto max-md:px-6 max-sm:px-0">
         <article
           v-for="(item, idx) in events"
           :key="idx"
@@ -74,7 +74,7 @@ const grads = [
               <!-- sm+：文字揭示动效 -->
               <template v-if="!isMobile">
                 <TextReveal :stagger="0.08" :duration="0.5" :scroll-trigger="true">
-                  <p class="font-semibold text-[32px] md:text-[36px] lg:text-[42px] leading-[1.1]"
+                  <p class="font-semibold text-[40px] md:text-[48px] lg:text-[56px] leading-[1.1]"
                     style="background: linear-gradient(to bottom, #faedc5, #dbbd78); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));">
                     {{ item[2] }}</p>
                 </TextReveal>
