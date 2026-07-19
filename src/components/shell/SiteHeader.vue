@@ -56,7 +56,7 @@ const navItems = [
   ['数字展厅', '/exhibition'],
   ['商务合作', '/alliance'],
   ['资讯中心', '/news'],
-  ['人才库', '/talent'],
+  ['人才中心', '/talent'],
   ['关于我们', '/about'],
 ]
 

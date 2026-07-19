@@ -3,141 +3,137 @@ import { ref, computed } from 'vue'
 import PageHero from '@/components/shared/PageHero.vue'
 import siteContent from '@/data/site-content.js'
 
+const experts = siteContent.experts || []
+const activeTab = ref('experts') // 'experts' | 'talent'
+
 // 赛事分类
 const eventTabs = ref([
   '全部', '民族影像 AIGC 创作大赛', '非遗影像青年创作营',
-  'Aisha uzi 任儿女讲述人大赛', '千校民族影像作品季', '数字文旅 IP 创新挑战'
+  'AI 数字人讲述人大赛', '千校民族影像作品季', '数字文旅 IP 创新挑战'
 ])
 const activeEvent = ref('全部')
-
-// 奖项分类
 const awardTabs = ref([
-  '全部', '金奖', '优秀创作奖', '银奖', '最佳数字人', '优秀考生', '创意奖', '入围奖'
+  '全部', '金奖', '银奖', '优秀创作奖', '最佳数字人', '创意奖', '入围奖', '优秀考生'
 ])
 const activeAward = ref('全部')
 
-// 搜索
-const searchQuery = ref('')
-const recentSearches = ref(['王兴宇', '白鹿', '和弘'])
-
-// 模拟人才数据（用作品数据模拟 + 奖项标签）
+// 人才数据
 const talents = computed(() => {
-  const base = (siteContent.works || []).slice(0, 9)
+  const names = ['周星辰', '林晓月', '赵天乐', '陈雨萱', '刘浩然', '马茗悦', '何其然', '王语嫣', '张佳怡']
   const awards = ['金奖', '银奖', '优秀创作奖', '最佳数字人', '创意奖', '入围奖', '优秀考生', '金奖', '银奖']
-  return base.map((w, i) => ({
-    ...w,
-    name: ['王兴宇', '白鹿', '和弘', '阿圆', '张艺', '李楠', '陈锐', '王兴宇', '白鹿'][i] || '创作者',
+  return names.map((n, i) => ({
+    name: n,
+    event: eventTabs.value[1 + (i % 5)],
     award: awards[i],
-    year: 2026,
+    img: `assets/figma/imgWan${i % 2 === 0 ? '1' : '2'}.png`,
     certId: `BY-TALENT-2026-00${i + 1}`,
-    desc: '将民族服饰、节庆场景与 AIGC 视觉叙事结合，作品入选平台虚拟展厅。',
-  }))
+    year: '2026',
+  })).filter(t => {
+    if (activeEvent.value !== '全部' && t.event !== activeEvent.value) return false
+    if (activeAward.value !== '全部' && t.award !== activeAward.value) return false
+    return true
+  })
 })
 </script>
 
 <template>
-  <div class="bg-white">
-    <PageHero
-      title="人才库"
-      eng="Talent Pool"
-      subtitle="展示赛事获奖得主、优秀考生与平台重点创作者。"
-    />
+  <div>
+    <PageHero title="人才中心" eng="Talent Hub" subtitle="汇聚民族影像创作人才与专业评审专家，搭建展示与交流的一体化平台。" />
 
-    <!-- ====== 人才展示 ====== -->
-    <section class="px-[128px] max-lg:px-8 max-sm:px-4 py-[64px]">
-      <div class="max-w-[1664px] mx-auto">
+    <!-- ===== Tab 切换：专家评委 / 人才中心 ===== -->
+    <section class="flex justify-center pt-[100px] pb-[40px] max-sm:pt-[60px] max-sm:pb-[30px] bg-white">
+      <div class="flex gap-[60px] max-sm:gap-[40px]">
+        <button @click="activeTab = 'experts'"
+          class="text-[40px] max-sm:text-[28px] font-bold leading-tight transition-colors"
+          :class="activeTab === 'experts' ? 'text-navy' : 'text-ink/15 hover:text-ink/30'">
+          专家评委
+        </button>
+        <button @click="activeTab = 'talent'"
+          class="text-[40px] max-sm:text-[28px] font-bold leading-tight transition-colors"
+          :class="activeTab === 'talent' ? 'text-navy' : 'text-ink/15 hover:text-ink/30'">
+          人才中心
+        </button>
+      </div>
+    </section>
 
-        <!-- 赛事分类 tabs -->
-        <div class="flex flex-wrap gap-4 mb-3">
-          <button
-            v-for="t in eventTabs" :key="t"
-            @click="activeEvent = t"
-            class="h-[34px] px-5 rounded-full text-[14px] whitespace-nowrap transition-colors border"
-            :class="activeEvent === t
-              ? 'bg-navy text-white border-navy font-semibold'
-              : 'bg-transparent text-muted border-[#ddd] hover:border-ink'"
-          >{{ t }}</button>
+    <!-- ===== 专家评委 ===== -->
+    <section v-if="activeTab === 'experts'" class="bg-white px-[128px] max-lg:px-8 max-sm:px-4 pb-[100px] max-sm:pb-[60px]">
+      <div class="max-w-[1336px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article v-for="(expert, i) in experts" :key="i"
+          class="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer">
+          <!-- 半身头像 -->
+          <div class="relative h-[320px] max-sm:h-[260px] bg-gradient-to-b from-bg-card to-white flex items-end justify-center overflow-hidden">
+            <img :src="expert.avatar" :alt="expert.name"
+              class="w-[200px] max-sm:w-[160px] h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" />
+            <!-- 渐变底部 -->
+            <div class="absolute inset-x-0 bottom-0 h-[60%] pointer-events-none"
+              style="background: linear-gradient(to top, rgba(255,255,255,0.95), transparent)" />
+          </div>
+
+          <!-- 信息区 — hover后变为简介 -->
+          <div class="relative p-5 pt-3 bg-white min-h-[120px]">
+            <!-- 默认：名字 + title -->
+            <div class="group-hover:opacity-0 group-hover:absolute transition-opacity duration-300">
+              <h3 class="font-bold text-[18px] text-ink">{{ expert.name }}</h3>
+              <p class="text-[13px] text-blue mt-0.5">{{ expert.title }}</p>
+            </div>
+            <!-- Hover：简介 -->
+            <div class="absolute inset-0 p-5 pt-3 opacity-0 group-hover:opacity-100 group-hover:relative transition-opacity duration-300">
+              <p class="text-[14px] text-ink/60 leading-[1.7] line-clamp-4">{{ expert.bio }}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 人才中心 ===== -->
+    <section v-if="activeTab === 'talent'" class="bg-white px-[128px] max-lg:px-8 max-sm:px-4 pb-[100px] max-sm:pb-[60px]">
+      <div class="max-w-[1336px] mx-auto flex flex-col gap-[28px]">
+        <!-- 双层筛选 -->
+        <div class="flex flex-col gap-[12px]">
+          <div class="flex gap-[14px] flex-wrap">
+            <button v-for="t in eventTabs" :key="t" @click="activeEvent = t"
+              class="h-8 px-5 rounded-full text-[13px] font-medium whitespace-nowrap transition-colors border"
+              :class="activeEvent === t ? 'text-white border-transparent' : 'bg-transparent text-ink/55 border-border-light hover:border-ink'"
+              :style="activeEvent === t ? { background: 'linear-gradient(-69deg, #b5edff 3%, #214fd6 53%, #5383eb 93%)' } : {}">{{ t }}</button>
+          </div>
+          <div class="flex gap-[14px] flex-wrap">
+            <button v-for="t in awardTabs" :key="t" @click="activeAward = t"
+              class="h-8 px-5 rounded-full text-[13px] font-medium whitespace-nowrap transition-colors border"
+              :class="activeAward === t ? 'text-white border-transparent' : 'bg-transparent text-ink/55 border-border-light hover:border-ink'"
+              :style="activeAward === t ? { background: 'linear-gradient(-69deg, #b5edff 3%, #214fd6 53%, #5383eb 93%)' } : {}">{{ t }}</button>
+          </div>
         </div>
 
-        <!-- 奖项分类 tabs -->
-        <div class="flex flex-wrap gap-4 mb-4">
-          <button
-            v-for="t in awardTabs" :key="t"
-            @click="activeAward = t"
-            class="h-[34px] px-5 rounded-full text-[14px] whitespace-nowrap transition-colors border"
-            :class="activeAward === t
-              ? 'bg-navy text-white border-navy font-semibold'
-              : 'bg-transparent text-muted border-[#ddd] hover:border-ink'"
-          >{{ t }}</button>
-        </div>
-
-        <!-- 搜索 -->
-        <div class="flex gap-3 mb-4 max-w-[520px]">
-          <input
-            v-model="searchQuery"
-            placeholder="搜索人才、赛事、奖项"
-            class="flex-1 min-w-0 h-10 rounded-lg border border-[#ddd] px-[13px] text-[16px] outline-none placeholder:text-muted/35 focus:border-blue transition-colors"
-          />
-          <button class="h-10 px-4 rounded-lg bg-blue text-white text-[14px] font-semibold shrink-0 hover:opacity-90">搜索</button>
-        </div>
-
-        <!-- 近期搜索 -->
-        <div class="flex items-center gap-3 mb-8 text-[14px]">
-          <span class="text-muted">近期搜索</span>
-          <button
-            v-for="s in recentSearches" :key="s"
-            @click="searchQuery = s"
-            class="h-[26px] px-3 rounded-full text-[13px] text-muted bg-bg-card border border-border-light hover:border-blue hover:text-blue transition-colors"
-          >{{ s }}</button>
-        </div>
-
-        <!-- 人才卡片网格：3 列 -->
-        <div class="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-10">
-          <article
-            v-for="(t, i) in talents" :key="i"
-            class="relative bg-white border border-[#ddd] rounded-lg overflow-visible group cursor-pointer hover:shadow-lg transition-shadow"
-          >
+        <!-- 人才卡片 3 列 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <article v-for="(t, i) in talents" :key="i"
+            class="relative bg-white border border-border-light rounded-lg overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
             <!-- 照片 -->
-            <div class="aspect-[526/360] overflow-hidden rounded-t-lg">
-              <img :src="t[3]" :alt="t.name" class="size-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="aspect-[526/360] overflow-hidden">
+              <img :src="t.img" :alt="t.name" class="size-full object-cover transition-transform duration-500 group-hover:scale-105" />
             </div>
+            <!-- 信息 -->
+            <div class="relative p-4 flex flex-col gap-2" style="background: linear-gradient(to bottom, rgba(181,237,255,0) 0%, rgba(83,131,235,0.12) 100%)">
+              <span class="inline-flex items-center px-2 py-0.5 rounded bg-navy/10 text-[11px] font-medium text-navy w-fit">{{ t.event }}</span>
+              <p class="font-semibold text-[18px] text-ink">{{ t.name }}</p>
+              <p class="text-[13px] text-ink/45 line-clamp-2">民族影像 AIGC 创作者，擅长民族文化元素的数字表达与视觉呈现。</p>
 
-            <!-- 奖项证书悬浮层 — 横跨图片底部 + 内容顶部 -->
-            <div
-              class="absolute right-[5%] top-[58%] -translate-y-1/2 w-[46%] z-10 rounded-lg border-[3px] border-gold-pale overflow-hidden"
-              style="background: rgba(255,255,255,0.48); box-shadow: 0px 14px 36px 0px rgba(58,35,28,0.08); backdrop-filter: blur(4px);"
-            >
-              <!-- 大圆光晕背景 -->
-              <div class="absolute -left-[66%] -top-[39%] size-[152%] pointer-events-none opacity-20"
-                style="background: radial-gradient(circle, rgba(250,237,197,0.6) 0%, transparent 70%)" />
-              <!-- 证书文字 -->
-              <div class="relative flex flex-col gap-2.5 px-5 py-7 text-left">
-                <p class="text-[12px] font-semibold text-navy uppercase tracking-[0.1em] leading-[19px]">CertiFicate</p>
-                <p class="text-[24px] font-semibold text-ink leading-tight">{{ t.award }}</p>
-                <p class="text-[14px] text-ink/65">{{ t.name }}</p>
-                <p class="text-[14px] text-ink/65 whitespace-nowrap">{{ t.certId }}</p>
-              </div>
-            </div>
-
-            <!-- 底部信息 -->
-            <div class="relative p-4 pt-8 flex flex-col gap-3 rounded-b-lg" style="background: linear-gradient(to bottom, rgba(181,237,255,0) 0%, rgba(83,131,235,0.12) 100%)">
-              <!-- 赛事标签 -->
-              <span class="inline-flex items-center w-fit px-2.5 py-1 rounded text-[12px] font-semibold bg-bg-card text-blue-mid">{{ activeEvent === '全部' ? '民族影像 AIGC 创作大赛' : activeEvent }}</span>
-
-              <!-- 姓名 + 描述 -->
-              <div>
-                <h3 class="font-semibold text-[20px] text-ink">{{ t.name }}</h3>
-                <p class="text-[14px] text-muted mt-1 line-clamp-2">{{ t.desc }}</p>
-              </div>
-
-              <!-- 底部行 -->
-              <div class="flex items-center justify-between pt-2">
-                <span class="text-[14px] font-semibold text-navy">{{ t.award }}</span>
-                <span class="text-[13px] text-muted">{{ t.year }}</span>
+              <!-- 奖项证书悬浮层 -->
+              <div class="absolute right-[5%] top-[60%] -translate-y-1/2 w-[46%] pointer-events-none z-10">
+                <div class="absolute -left-[60%] -top-[30%] w-[140%] aspect-square rounded-full opacity-8"
+                  style="background: radial-gradient(circle, rgba(250,237,197,0.25) 0%, transparent 70%)" />
+                <div class="relative backdrop-blur-[4px] bg-white/50 border-[3px] border-[#faedc5] rounded-lg p-2 text-right shadow-[0_14px_36px_rgba(58,35,28,0.08)]">
+                  <p class="text-[10px] text-gold/50 uppercase tracking-[0.15em] leading-tight">Certificate</p>
+                  <p class="text-[16px] font-bold text-gold leading-tight">{{ t.award }}</p>
+                  <p class="text-[11px] text-ink/30 mt-0.5">{{ t.name }}</p>
+                  <p class="text-[10px] text-ink/15">{{ t.certId }}</p>
+                </div>
               </div>
             </div>
           </article>
         </div>
+        <p v-if="!talents.length" class="text-muted py-12 text-center">暂无匹配的人才</p>
       </div>
     </section>
   </div>
