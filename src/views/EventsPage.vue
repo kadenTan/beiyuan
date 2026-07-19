@@ -80,40 +80,31 @@ function isEnded(status) {
           <FilterTabs v-model="activeFormat" :items="filters.format" />
         </div>
 
-        <!-- 赛事卡片列表 -->
-        <div class="flex flex-col gap-[12px] px-[128px] max-lg:px-8 max-sm:px-4">
+        <!-- 赛事卡片列表：桌面2列 / 移动端1列 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-[128px] max-lg:px-8 max-sm:px-4">
           <article
             v-for="(item, idx) in filtered"
             :key="idx"
-            class="relative flex flex-col justify-end h-[464px] max-sm:h-[340px] w-full overflow-clip cursor-pointer group transition-shadow duration-300 shadow-[0_0_20px_rgba(240,194,79,0.15)] hover:shadow-[0_0_40px_rgba(240,194,79,0.30)]"
-            :class="{
-              'overflow-clip': true,
-              'rounded-tl-[4px] rounded-tr-[4px]': idx === 0,
-              'rounded-bl-[8px] rounded-br-[8px]': idx === filtered.length - 1 || (idx > 0 && idx === filtered.length - 1),
-            }"
+            class="relative flex flex-col justify-end h-[420px] md:h-[460px] max-sm:h-[340px] w-full overflow-hidden rounded-[4px] cursor-pointer group transition-shadow duration-300 shadow-[0_0_20px_rgba(240,194,79,0.15)] hover:shadow-[0_0_40px_rgba(240,194,79,0.30)]"
             @click="router.push({ name: 'event-detail', params: { id: idx } })"
           >
             <!-- 背景图片 -->
-            <div class="absolute inset-0 overflow-hidden pointer-events-none"
-              :class="{
-                'rounded-tl-[4px] rounded-tr-[4px]': idx === 0,
-                'rounded-bl-[8px] rounded-br-[8px]': idx === filtered.length - 1,
-              }">
+            <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[4px]">
               <img
                 :src="cardImages[idx % 4]"
                 alt=""
-                class="absolute left-0 max-w-none w-full h-[500%] top-[-99%] object-cover transition-transform duration-500 group-hover:scale-105"
+                class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
             <!-- 渐变蒙版 -->
             <div
-              class="absolute inset-0 backdrop-blur-[4.25px]"
+              class="absolute inset-0 backdrop-blur-[4.25px] rounded-[4px]"
               :style="{ backgroundImage: getMask(item[0]) }"
             />
 
             <!-- 内容区 -->
-            <div class="relative z-10 flex flex-col gap-[12px] px-[108px] max-sm:px-6 py-[64px] max-sm:py-10 w-full">
+            <div class="relative z-10 flex flex-col gap-[10px] max-sm:gap-[8px] px-6 lg:px-8 py-8 lg:py-12 max-sm:py-10 w-full">
               <!-- 状态标签 -->
               <div class="bg-bg-card inline-flex items-start px-[12px] py-[4px] rounded-[4px] w-fit">
                 <span
@@ -123,28 +114,28 @@ function isEnded(status) {
               </div>
 
               <!-- 标题 + 描述 -->
-              <div class="flex flex-col gap-[12px]">
+              <div class="flex flex-col gap-[8px]">
                 <p
-                  class="font-semibold text-[88px] max-sm:text-[40px] leading-[88px] max-sm:leading-[44px] whitespace-nowrap"
+                  class="font-semibold text-[36px] md:text-[40px] lg:text-[48px] max-sm:text-[36px] leading-[1.1]"
                   :style="{ background: GRADIENT_GOLD, '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent' }"
                 >{{ item[2] }}</p>
-                <p class="text-[20px] max-sm:text-[14px] leading-[28px] text-white whitespace-nowrap">{{ item[3] }}</p>
+                <p class="text-[14px] md:text-[15px] leading-[22px] text-white line-clamp-2">{{ item[3] }}</p>
               </div>
 
               <!-- 举办形式 + 时间 -->
-              <div class="flex gap-[0px]">
-                <div class="flex flex-col w-[170px]">
-                  <p class="text-[13px] leading-[20.8px] text-white">举办形式</p>
-                  <p class="font-semibold text-[16px] leading-[25.6px] text-white whitespace-nowrap">{{ item[1] }}</p>
+              <div class="flex gap-[16px] lg:gap-[24px] max-sm:gap-[12px]">
+                <div class="flex flex-col">
+                  <p class="text-[12px] lg:text-[13px] leading-[20.8px] text-white/80">举办形式</p>
+                  <p class="font-semibold text-[14px] lg:text-[16px] leading-[25.6px] text-white whitespace-nowrap">{{ item[1] }}</p>
                 </div>
                 <div class="flex flex-col">
-                  <p class="text-[13px] leading-[20.8px] text-white">时间</p>
-                  <p class="font-semibold text-[16px] leading-[25.6px] text-white whitespace-nowrap">{{ item[4] }}</p>
+                  <p class="text-[12px] lg:text-[13px] leading-[20.8px] text-white/80">时间</p>
+                  <p class="font-semibold text-[14px] lg:text-[16px] leading-[25.6px] text-white whitespace-nowrap">{{ item[4] }}</p>
                 </div>
               </div>
 
               <!-- 操作按钮 -->
-              <div class="flex gap-[12px] items-center">
+              <div class="flex gap-[12px] items-center max-sm:flex-col">
                 <button
                   @click.stop="signupEvent = item[2]; showSignup = true"
                   class="inline-flex items-center justify-center px-[25px] py-[9px] rounded-[12px] border border-blue-pale text-[16px] font-semibold text-white text-center whitespace-nowrap hover:opacity-90 transition-opacity cursor-pointer"
