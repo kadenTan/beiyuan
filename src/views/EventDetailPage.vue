@@ -11,65 +11,78 @@ const eventCategories = ref(['赛项一', '赛项二', '赛项三'])
 
 <template>
   <div>
-    <!-- Hero -->
-    <section class="relative h-[480px] max-sm:h-[340px] w-full overflow-hidden bg-navy">
-      <div class="absolute inset-0 overflow-hidden">
-        <img :src="d.heroImage || '/assets/figma/imgArticle1.png'" alt="" class="absolute left-0 w-full h-[500%] top-[-99%] object-cover" />
+    <!-- Hero — 100vh 满屏 Banner -->
+    <section class="relative h-screen w-full overflow-hidden">
+      <!-- 背景图 -->
+      <div class="absolute inset-0">
+        <img :src="d.heroImage || '/assets/figma/imgArticle1.png'" alt="" class="absolute inset-0 size-full object-cover" />
       </div>
-      <div class="absolute inset-0 backdrop-blur-[4.25px]" style="background: linear-gradient(-88.99deg, rgba(24,136,255,0) 1.53%, rgb(24,136,255) 97.82%)" />
-      <div class="absolute left-[255px] max-lg:left-8 max-sm:left-4 top-[86px] max-sm:top-[60px] flex flex-col gap-[20px] max-w-[754px] max-sm:max-w-full">
-        <div class="flex flex-col gap-[8px]">
-          <p class="font-semibold text-[64px] max-sm:text-[36px] text-white whitespace-nowrap">非遗影像青年创作营</p>
-          <p class="text-[20px] max-sm:text-[16px] leading-[28px] text-white max-w-[754px]">围绕非遗技艺、民歌、服饰、节庆等主题完成短片创作与成果路演。</p>
+      <!-- 渐变蒙版 -->
+      <div class="absolute inset-0" style="background: linear-gradient(0deg, rgba(9,16,63,0.85) 0%, rgba(9,16,63,0.3) 40%, rgba(9,16,63,0.15) 100%)" />
+      <!-- 内容 -->
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+        <div class="flex flex-col gap-6 max-w-[900px]">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 w-fit mx-auto">
+            <span class="size-2 rounded-full bg-gold" />
+            <span class="text-[13px] text-gold-light uppercase tracking-wider">Competition Detail</span>
+          </div>
+          <h1 class="font-bold text-[clamp(40px,6vw,80px)] leading-[1.1] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">非遗影像青年创作营</h1>
+          <p class="text-[18px] max-sm:text-[16px] leading-[1.8] text-white/80 max-w-[700px] mx-auto">围绕非遗技艺、民歌、服饰、节庆等主题完成短片创作与成果路演。</p>
+          <div class="flex gap-4 justify-center flex-wrap">
+            <button @click="showSignup = true" class="inline-flex items-center gap-2 h-14 px-8 rounded-xl text-[16px] font-semibold text-white hover:opacity-90 transition-opacity" style="background: linear-gradient(153.4deg, #214fd6 0%, #5383eb 100%); filter: drop-shadow(0 12px 24px rgba(33,79,214,0.4))">
+              立即报名
+              <img src="/assets/figma/imgArrowRightUpLong.svg" alt="" class="size-5" />
+            </button>
+            <button class="h-14 px-8 rounded-xl text-[16px] font-medium text-white border border-white/30 hover:bg-white/10 transition-colors">了解更多</button>
+          </div>
         </div>
-        <button @click="showSignup = true" class="flex items-center gap-[8px] h-[56px] px-[25px] rounded-[12px] border border-white text-[16px] font-semibold text-white bg-white/10 hover:bg-white/20 transition-colors w-fit cursor-pointer">
-          立即报名
-          <img src="/assets/figma/imgArrowRightUpLong.svg" alt="" class="size-[20px]" />
-        </button>
+      </div>
+      <!-- 底部滚动提示 -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 text-[12px]">
+        <span>向下滚动</span>
+        <svg class="size-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
       </div>
     </section>
 
-    <!-- 内容区 -->
-    <section class="bg-white px-[128px] max-lg:px-8 max-sm:px-4 py-[80px] max-sm:py-[60px]">
-      <div class="max-w-[960px] mx-auto flex flex-col gap-[40px]">
-        <!-- 赛事介绍 -->
+    <!-- 内容区 — 白色底色，黑体粗标题 -->
+    <section class="bg-white px-[128px] max-lg:px-8 max-sm:px-4 py-[100px] max-sm:py-[60px]">
+      <div class="max-w-[860px] mx-auto flex flex-col gap-[80px] max-sm:gap-[60px]">
+
+        <!-- ====== 赛事介绍 ====== -->
         <div>
-          <h2 class="text-[24px] font-semibold text-ink mb-[16px]">{{ d.sections?.intro?.title || '赛事介绍' }}</h2>
-          <p class="text-muted leading-relaxed mb-[8px]">{{ d.sections?.intro?.desc }}</p>
-          <p class="text-[14px] text-muted">主办单位：{{ d.sections?.intro?.organizer }}</p>
+          <h2 class="text-[32px] max-sm:text-[26px] font-bold text-ink mb-6">{{ d.sections?.intro?.title || '赛事介绍' }}</h2>
+          <p class="text-[17px] leading-[1.8] text-ink/70 mb-6">{{ d.sections?.intro?.desc }}</p>
+          <div class="flex items-center gap-3 text-[15px] text-ink/50">
+            <span class="font-semibold text-ink/80">主办单位</span>
+            <span class="w-px h-4 bg-border-light" />
+            <span>{{ d.sections?.intro?.organizer }}</span>
+          </div>
         </div>
 
-        <!-- 最新动态 -->
+        <!-- ====== 赛程安排 ====== -->
         <div>
-          <h3 class="text-[18px] font-medium text-ink mb-[16px]">最新动态</h3>
-          <div class="space-y-2">
-            <div v-for="(u, i) in d.sections?.intro?.updates" :key="i" class="flex gap-3 text-[14px] text-muted py-3 border-b border-[#ddd]">
-              <span class="text-[13px] whitespace-nowrap shrink-0">{{ u.date }}</span><span>{{ u.text }}</span>
+          <h2 class="text-[32px] max-sm:text-[26px] font-bold text-ink mb-6">赛程安排</h2>
+          <p class="text-[17px] leading-[1.8] text-ink/60 mb-10">{{ d.sections?.flow?.subtitle }}</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div v-for="s in d.sections?.flow?.steps" :key="s.num" class="relative bg-bg-card rounded-xl p-6 pt-10 text-center">
+              <span class="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-navy text-[14px] font-bold text-navy">{{ s.num }}</span>
+              <h4 class="font-bold text-[18px] text-ink mt-4 mb-2">{{ s.title }}</h4>
+              <p class="text-[14px] text-ink/50">{{ s.desc }}</p>
             </div>
           </div>
         </div>
 
-        <!-- 赛项选择 -->
+        <!-- ====== 赛项介绍 ====== -->
         <div>
-          <h3 class="text-[18px] font-medium text-ink mb-[16px]">{{ d.sections?.categories?.title || '赛项选择' }}</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-[16px]">
-            <div v-for="(c, i) in d.sections?.categories?.items" :key="i" class="bg-paper border border-line rounded-[8px] p-[20px]">
-              <h4 class="font-medium text-ink mb-[8px]">{{ c.name }}</h4><p class="text-[14px] text-muted">{{ c.desc }}</p>
+          <h2 class="text-[32px] max-sm:text-[26px] font-bold text-ink mb-6">{{ d.sections?.categories?.title || '赛项介绍' }}</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div v-for="(c, i) in d.sections?.categories?.items" :key="i" class="bg-bg-card border border-border-light rounded-xl p-8 hover:shadow-md transition-shadow">
+              <h4 class="font-bold text-[20px] text-ink mb-4">{{ c.name }}</h4>
+              <p class="text-[15px] text-ink/55 leading-relaxed">{{ c.desc }}</p>
             </div>
           </div>
         </div>
 
-        <!-- 比赛流程 -->
-        <div>
-          <h3 class="text-[18px] font-medium text-ink mb-[8px]">{{ d.sections?.flow?.title || '比赛流程' }}</h3>
-          <p class="text-[14px] text-muted mb-[24px]">{{ d.sections?.flow?.subtitle }}</p>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-[16px]">
-            <div v-for="s in d.sections?.flow?.steps" :key="s.num" class="text-center p-[24px] bg-bg-card rounded-[8px]">
-              <span class="text-[32px] text-accent font-bold">{{ s.num }}</span>
-              <h4 class="font-medium text-ink mt-[8px]">{{ s.title }}</h4><p class="text-[13px] text-muted mt-[4px] max-sm:hidden">{{ s.desc }}</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
