@@ -135,12 +135,14 @@ function isEnded(status) {
               <div class="flex gap-[12px] items-center max-sm:flex-col">
                 <button
                   @click.stop="signupEvent = item[2]; showSignup = true"
-                  class="inline-flex items-center justify-center h-[32px] px-[12px] rounded-[4px] border border-white/40 text-[12px] text-white hover:bg-white/10 transition-colors w-fit cursor-pointer"
+                  class="inline-flex items-center gap-[4px] h-10 px-5 rounded-lg border border-[#b5edff] text-[14px] font-semibold text-white hover:opacity-90 transition-opacity w-fit cursor-pointer"
+                  style="background: linear-gradient(-58.42deg, rgb(33,79,214) 8.68%, rgb(83,131,235) 69.12%, rgb(181,237,255) 120.93%); filter: drop-shadow(0 8px 16px rgba(33,79,214,0.3));"
                 >
                   立即报名
                 </button>
                 <button
-                  class="inline-flex items-center justify-center h-[32px] px-[12px] rounded-[4px] border border-white/40 text-[12px] text-white hover:bg-white/10 transition-colors w-fit cursor-pointer"
+                  class="inline-flex items-center justify-center h-10 px-5 rounded-lg border border-white/30 text-[14px] text-white hover:bg-white/10 transition-colors w-fit cursor-pointer"
+                  style="background: rgba(255,255,255,0.08)"
                 >
                   查看详情
                 </button>
