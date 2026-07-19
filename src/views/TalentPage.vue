@@ -55,23 +55,20 @@ const talents = computed(() => {
 
     <!-- 专家评委 -->
     <section v-if="activeTab === 'experts'" class="bg-white px-[128px] max-lg:px-8 max-sm:px-4 pb-[100px] max-sm:pb-[60px]">
-      <div class="max-w-[1336px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="max-w-[1336px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <article v-for="(expert, i) in experts" :key="i"
-          class="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer">
+          class="group bg-[#f5f5f7] rounded-xl overflow-hidden cursor-pointer transition-all duration-500 hover:bg-white hover:shadow-xl">
           <!-- 头像 -->
-          <div class="relative h-[300px] max-sm:h-[240px] flex items-center justify-center overflow-hidden"
-            style="background: linear-gradient(135deg, #e8eaed 0%, #f5f5f7 30%, #e0e2e6 60%, #f0f1f3 100%)">
+          <div class="h-[300px] max-sm:h-[240px] flex items-center justify-center overflow-hidden bg-[#f0f2f5]">
             <img :src="expert.avatar || '/assets/avater.png'" :alt="expert.name"
-              class="max-w-[85%] max-h-[85%] object-contain grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" />
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
-          <!-- 信息区 — 固定高度避免hover跳动 -->
-          <div class="relative p-5 bg-white" style="min-height: 120px">
-            <!-- 默认名字+title -->
-            <div class="transition-opacity duration-300" :class="'group-hover:opacity-0'">
+          <!-- 信息区 -->
+          <div class="relative p-5" style="min-height: 120px">
+            <div class="transition-opacity duration-300 group-hover:opacity-0">
               <h3 class="font-bold text-[18px] text-ink">{{ expert.name }}</h3>
               <p class="text-[13px] text-blue mt-0.5">{{ expert.title }}</p>
             </div>
-            <!-- hover简介 — 绝对定位叠加 -->
             <div class="absolute inset-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-start">
               <p class="text-[14px] text-ink/60 leading-[1.7] line-clamp-4">{{ expert.bio }}</p>
             </div>
