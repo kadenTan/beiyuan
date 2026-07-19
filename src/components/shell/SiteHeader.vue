@@ -53,7 +53,7 @@ const navItems = [
   ['课程中心', '/courses'],
   ['数字展厅', '/exhibition'],
   ['文创商城', '/mall'],
-  ['存证中心', '/evidence'],
+  ['数字版权中心', '/evidence'],
   ['商务合作', '/alliance'],
   ['资讯中心', '/news'],
   ['人才中心', '/talent'],

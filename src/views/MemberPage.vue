@@ -304,7 +304,7 @@ function doLogout() {
               <svg class="size-16 text-ink/15 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               <p class="text-[16px] text-ink/30 font-medium">暂无存证</p>
               <p class="text-[13px] text-muted mt-1">对作品发起存证后，证书将在此处展示</p>
-              <a href="/#/evidence" class="mt-4 inline-flex items-center h-9 px-5 rounded-full text-[13px] font-semibold text-white hover:opacity-90 transition-opacity no-underline" :style="{ background: 'linear-gradient(-39deg, #b5edff, #214fd6, #5383eb)' }">前往存证中心</a>
+              <a href="/#/evidence" class="mt-4 inline-flex items-center h-9 px-5 rounded-full text-[13px] font-semibold text-white hover:opacity-90 transition-opacity no-underline" :style="{ background: 'linear-gradient(-39deg, #b5edff, #214fd6, #5383eb)' }">前往数字版权中心</a>
             </div>
           </div>
 

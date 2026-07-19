@@ -22,8 +22,8 @@ const showOnPage = computed(() => route.path !== '/auth')
       <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
         <!-- Logo -->
         <div class="flex flex-col gap-[12px] items-center shrink-0">
-          <div class="rounded-[31px] size-[88px] overflow-hidden">
-            <img src="/assets/logo（m）.png" :alt="site.siteInfo.name" class="size-full object-cover" />
+          <div class="size-[88px] bg-[#111425]">
+            <img src="/assets/logo（m）.png" :alt="site.siteInfo.name" class="size-full object-contain" />
           </div>
         </div>
 
@@ -38,7 +38,7 @@ const showOnPage = computed(() => route.path !== '/auth')
             </div>
             <div class="flex flex-col gap-[12px] whitespace-nowrap">
               <a href="/#/mall" class="text-white/85 hover:text-white no-underline">文创商城</a>
-              <a href="/#/evidence" class="text-white/85 hover:text-white no-underline">存证中心</a>
+              <a href="/#/evidence" class="text-white/85 hover:text-white no-underline">数字版权中心</a>
               <a href="/#/news" class="text-white/85 hover:text-white no-underline">资讯中心</a>
             </div>
             <div>

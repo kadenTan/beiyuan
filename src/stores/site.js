@@ -9,7 +9,7 @@ export const useSiteStore = defineStore('site', () => {
     ['千校联盟', '/alliance'],
     ['虚拟展厅', '/exhibition'],
     ['文创商城', '/mall'],
-    ['存证中心', '/evidence'],
+    ['数字版权中心', '/evidence'],
     ['资讯中心', '/news'],
     ['关于我们', '/about'],
   ])
