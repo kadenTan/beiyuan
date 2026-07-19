@@ -228,18 +228,18 @@ const flowSteps = [
           <p class="text-[15px] leading-[1.8] text-ink/65 text-center max-w-[900px]">
             数字版权证书是基于区块链技术为数字作品生成的不可篡改、可验证的权属证明文件，相当于数字作品的"电子身份证"。与传统版权登记证书不同，区块链存证证书并不直接授予版权，而是通过将作品哈希、存证主体、存证时间等关键元数据锚定在区块链上，形成具有法律效力的时间戳证明，为作品确权、授权和维权提供可信的证据支撑。依托文昌链-天舟平台，您可通过接口将图片、视频、音频、文字、代码等各类作品快速上链存证，获得包含存证ID、交易哈希、区块高度等要素的标准化存证证书，且支持单一主体或多主体联合存证，所有记录均可通过查验链接在线核验，确保证据的真实性与完整性。
           </p>
-          <!-- 证书示例图 — 无边框无padding -->
-          <div class="flex max-sm:flex-col gap-3 items-center justify-center w-full overflow-x-auto">
-            <div class="h-[320px] max-sm:h-[220px] shrink-0 w-[451px] max-sm:w-full">
+          <!-- 证书示例图 -->
+          <div class="grid grid-cols-[2fr_1fr_1fr_1fr] max-sm:grid-cols-1 gap-3 w-full max-w-[1120px] mx-auto">
+            <div class="aspect-[451/320]">
               <img src="/assets/数字证书示例/IMG_00001.png" alt="证书示例1" class="size-full object-cover" />
             </div>
-            <div class="h-[320px] max-sm:h-[220px] shrink-0 w-[226px] max-sm:w-full">
+            <div class="aspect-[226/320]">
               <img src="/assets/数字证书示例/IMG_00002.png" alt="证书示例2" class="size-full object-cover" />
             </div>
-            <div class="h-[320px] max-sm:h-[220px] shrink-0 w-[226px] max-sm:w-full">
+            <div class="aspect-[226/320]">
               <img src="/assets/数字证书示例/IMG_00004.png" alt="证书示例4" class="size-full object-cover" />
             </div>
-            <div class="h-[320px] max-sm:h-[220px] shrink-0 w-[226px] max-sm:w-full">
+            <div class="aspect-[226/320]">
               <img src="/assets/数字证书示例/IMG_00003.png" alt="证书示例3" class="size-full object-cover" />
             </div>
           </div>
