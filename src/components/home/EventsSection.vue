@@ -63,7 +63,7 @@ const grads = [
             :style="{ backgroundImage: grads[idx] }" />
 
           <!-- 内容 -->
-          <div class="relative z-10 flex flex-col gap-[10px] max-sm:gap-[6px] px-6 lg:px-8 py-8 lg:py-12 w-full">
+          <div class="relative z-10 flex flex-col gap-[10px] max-sm:gap-[6px] px-6 lg:px-8 pt-4 lg:pt-6 pb-8 lg:pb-12 w-full">
             <!-- 状态标签 -->
             <div class="flex h-[29px] items-start px-[12px] py-[4px] rounded-[4px] bg-navy w-fit">
               <span class="font-semibold text-[13px] text-white whitespace-nowrap">{{ item[0] }}</span>
