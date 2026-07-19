@@ -85,6 +85,11 @@ function cardHeight(w) {
               @click="openModal(w)">
               <img :src="w[3]" :alt="w[0]" class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105" />
 
+              <!-- 存证标签 -->
+              <div v-if="w[7] && typeof w[7] === 'object'" class="absolute top-3 right-3 z-10 inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gold/90 text-[10px] font-semibold text-navy whitespace-nowrap">
+                <svg class="size-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>已存证
+              </div>
+
               <!-- Hover 渐变蒙版 + 信息 -->
               <div class="absolute inset-x-0 bottom-0 h-[50%] pointer-events-none"
                 style="background: linear-gradient(to top, rgba(0,0,0,0.75), transparent)" />
