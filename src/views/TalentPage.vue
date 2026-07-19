@@ -58,11 +58,11 @@ const talents = computed(() => {
       <div class="max-w-[1336px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <article v-for="(expert, i) in experts" :key="i"
           class="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer">
-          <!-- 头像 — 固定高度，避免hover抖动 -->
-          <div class="relative h-[300px] max-sm:h-[240px] bg-[#f0f0f0] flex items-end justify-center overflow-hidden">
+          <!-- 头像 -->
+          <div class="relative h-[300px] max-sm:h-[240px] flex items-center justify-center overflow-hidden"
+            style="background: linear-gradient(135deg, #e8eaed 0%, #f5f5f7 30%, #e0e2e6 60%, #f0f1f3 100%)">
             <img :src="expert.avatar || '/assets/avater.png'" :alt="expert.name"
-              class="w-[180px] max-sm:w-[140px] h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" />
-            <div class="absolute inset-x-0 bottom-0 h-[50%] pointer-events-none" style="background: linear-gradient(to top, rgba(255,255,255,0.95), transparent)" />
+              class="max-w-[85%] max-h-[85%] object-contain grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" />
           </div>
           <!-- 信息区 — 固定高度避免hover跳动 -->
           <div class="relative p-5 bg-white" style="min-height: 120px">
