@@ -58,46 +58,50 @@ const filtered = computed(() => {
 
         <!-- ===== Ai系列课程 ===== -->
         <div class="flex flex-col gap-[28px]">
-          <!-- 标题 -->
           <div class="flex flex-col pt-[12px]">
             <p class="font-semibold text-[32px] leading-[1.15]" :style="{ background: GRADIENT_03, '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent' }">Ai系列课程</p>
           </div>
-          <!-- 团队信息卡 -->
-          <div class="relative bg-white border border-blue-pale rounded-lg overflow-hidden px-5 py-7 flex items-center justify-between gap-4 flex-wrap">
-            <div class="absolute -left-[159px] -top-[285px] size-[882px] pointer-events-none opacity-10">
-              <svg class="size-full" viewBox="0 0 882 882" fill="none"><circle cx="441" cy="441" r="440" fill="#b5edff" /><radialGradient id="se"><stop offset="0%" stop-color="#b5edff" /><stop offset="100%" stop-color="#b5edff" stop-opacity="0" /></radialGradient></svg>
+          <!-- 系列课程信息卡 -->
+          <template v-for="(s, si) in seriesCourses" :key="si">
+            <div class="relative bg-white border border-blue-pale rounded-lg overflow-hidden px-5 py-7 flex flex-col gap-3">
+              <div class="absolute -left-[159px] -top-[285px] size-[882px] pointer-events-none opacity-10">
+                <svg class="size-full" viewBox="0 0 882 882" fill="none"><circle cx="441" cy="441" r="440" fill="#b5edff" /><radialGradient id="se"><stop offset="0%" stop-color="#b5edff" /><stop offset="100%" stop-color="#b5edff" stop-opacity="0" /></radialGradient></svg>
+              </div>
+              <div class="relative flex items-center justify-between gap-4 flex-wrap">
+                <p class="text-[24px] font-semibold text-ink">{{ s.name }}</p>
+                <span class="bg-bg-card rounded-[36px] px-3 py-3 text-[14px] font-medium text-blue">{{ s.team }}</span>
+              </div>
+              <p class="relative text-[14px] text-ink/70 leading-[1.7]">{{ s.desc }}</p>
             </div>
-            <p class="relative text-[24px] font-semibold text-ink">一门能沉淀口碑的真Ai课</p>
-            <span class="relative bg-bg-card rounded-[36px] px-3 py-3 text-[14px] font-medium text-blue">浙江大学湖州研究院·人工智能与机器人教育研究中心</span>
-          </div>
-          <!-- 课程卡片 -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[28px] gap-y-[28px]">
-            <article v-for="(c, i) in filtered.slice(0, 4)" :key="'s'+i" class="border border-border-light rounded-[8px] overflow-hidden bg-white hover:shadow-lg transition-shadow flex flex-col max-w-[480px] min-w-0 justify-self-stretch w-full">
-              <div class="relative h-[248px] overflow-hidden shrink-0">
-                <img :src="c.img" :alt="c.title" class="absolute inset-0 size-full object-cover hover:scale-105 transition-transform duration-300" />
-                <p class="absolute left-1/2 -translate-x-1/2 top-[114px] font-bold text-[32px] leading-[40px] whitespace-nowrap" :style="{ background: GRADIENT_03, '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent' }">{{ c.title }}</p>
-              </div>
-              <div class="flex flex-col gap-[8px] p-[16px] pt-4 pb-2 flex-1" style="background: linear-gradient(-4deg, rgba(181,237,255,0) 46.7%, rgba(83,131,235,0.23) 87.97%)">
-                <div class="flex items-center justify-between">
-                  <span class="bg-bg-card rounded-full px-[9px] py-[4px] text-[12px] text-blue whitespace-nowrap">{{ c.category }} · {{ c.price }}</span>
-                  <div class="flex items-center gap-[4px]">
-                    <svg class="size-[16px]" viewBox="0 0 24 24" fill="none" stroke="rgba(26,20,16,0.65)" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                    <span class="text-[12px]" style="color: rgba(26,20,16,0.65)">{{ c.likes }}</span>
+            <!-- 该系列的课程卡片 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[28px] gap-y-[28px]">
+              <article v-for="(c, i) in filtered.slice(0, 4)" :key="'s'+si+'-'+i" class="border border-border-light rounded-[8px] overflow-hidden bg-white hover:shadow-lg transition-shadow flex flex-col max-w-[480px] min-w-0 justify-self-stretch w-full">
+                <div class="relative h-[248px] overflow-hidden shrink-0">
+                  <img :src="c.img" :alt="c.title" class="absolute inset-0 size-full object-cover hover:scale-105 transition-transform duration-300" />
+                  <p class="absolute left-1/2 -translate-x-1/2 top-[114px] font-bold text-[32px] leading-[40px] whitespace-nowrap" :style="{ background: GRADIENT_03, '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent' }">{{ c.title }}</p>
+                </div>
+                <div class="flex flex-col gap-[8px] p-[16px] pt-4 pb-2 flex-1" style="background: linear-gradient(-4deg, rgba(181,237,255,0) 46.7%, rgba(83,131,235,0.23) 87.97%)">
+                  <div class="flex items-center justify-between">
+                    <span class="bg-bg-card rounded-full px-[9px] py-[4px] text-[12px] text-blue whitespace-nowrap">{{ c.category }} · {{ c.price }}</span>
+                    <div class="flex items-center gap-[4px]">
+                      <svg class="size-[16px]" viewBox="0 0 24 24" fill="none" stroke="rgba(26,20,16,0.65)" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                      <span class="text-[12px]" style="color: rgba(26,20,16,0.65)">{{ c.likes }}</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-[4px]">
+                    <h3 class="font-semibold text-[20px] text-ink leading-[28px] whitespace-nowrap truncate">{{ c.title }}</h3>
+                    <div class="flex flex-col gap-[4px] text-[14px] leading-[20px]" style="color: rgba(26,20,16,0.65)">
+                      <p class="line-clamp-2">{{ c.desc }}</p>
+                      <p>导师：{{ c.teacher }}</p>
+                    </div>
+                  </div>
+                  <div class="h-[40px] min-h-[40px] rounded-[31px] flex items-center">
+                    <span class="text-[14px] font-semibold text-blue cursor-pointer hover:underline">查看课程</span>
                   </div>
                 </div>
-                <div class="flex flex-col gap-[4px]">
-                  <h3 class="font-semibold text-[20px] text-ink leading-[28px] whitespace-nowrap truncate">{{ c.title }}</h3>
-                  <div class="flex flex-col gap-[4px] text-[14px] leading-[20px]" style="color: rgba(26,20,16,0.65)">
-                    <p class="line-clamp-2">{{ c.desc }}</p>
-                    <p>导师：{{ c.teacher }}</p>
-                  </div>
-                </div>
-                <div class="h-[40px] min-h-[40px] rounded-[31px] flex items-center">
-                  <span class="text-[14px] font-semibold text-blue cursor-pointer hover:underline">查看课程</span>
-                </div>
-              </div>
-            </article>
-          </div>
+              </article>
+            </div>
+          </template>
         </div>
 
         <!-- ===== 系统课程 ===== -->
