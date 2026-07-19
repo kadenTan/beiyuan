@@ -42,51 +42,49 @@ const grads = [
 
     <!-- 内容 -->
     <div class="flex flex-col gap-[64px] items-center w-full relative z-[1]">
-      <FigmaHeading title="赛事活动" subtitle="Latest Events" tone="gold" />
+      <FigmaHeading title="赛事中心" subtitle="Latest Events" tone="gold" />
 
-      <!-- 赛事卡片：撑满宽度 -->
-      <div class="flex flex-col items-center w-full max-md:px-6 max-sm:px-0">
+      <!-- 赛事卡片：网格布局，lg 3列 / md 2列 / sm 1列 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 w-full max-w-[1280px] mx-auto max-md:px-6 max-sm:px-0">
         <article
           v-for="(item, idx) in events"
           :key="idx"
-          class="relative flex flex-col justify-end w-full h-[512px] max-sm:h-[380px] overflow-hidden border-[0.711px] border-[#f0c24f] cursor-pointer group transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(240,194,79,0.25)]"
-          :class="idx === 0 ? 'rounded-t-[4px]' : idx === events.length - 1 ? 'rounded-b-[4px]' : ''"
+          class="relative flex flex-col justify-end w-full h-[420px] md:h-[460px] overflow-hidden rounded-[4px] border-[0.711px] border-[#f0c24f] cursor-pointer group transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(240,194,79,0.25)]"
           @click="router.push(`/events/${idx}`)"
         >
           <!-- 背景图 -->
-          <div class="absolute inset-0 overflow-hidden pointer-events-none"
-            :class="idx === 0 ? 'rounded-t-[4px]' : idx === events.length - 1 ? 'rounded-b-[4px]' : ''">
+          <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[4px]">
             <img :src="imgs[idx] || '/assets/figma/imgArticle0.png'" alt=""
-              class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105 max-sm:object-cover max-sm:size-full max-sm:top-0 max-sm:h-full" />
+              class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
 
           <!-- 渐变蒙版 -->
-          <div class="absolute inset-0 backdrop-blur-[4.25px] pointer-events-none"
+          <div class="absolute inset-0 backdrop-blur-[4.25px] pointer-events-none rounded-[4px]"
             :style="{ backgroundImage: grads[idx] }" />
 
           <!-- 内容 -->
-          <div class="relative z-10 flex flex-col gap-[12px] max-sm:gap-[8px] px-[103px] max-lg:px-12 max-md:px-6 max-sm:px-5 py-[115px] max-sm:py-8 w-full">
+          <div class="relative z-10 flex flex-col gap-[10px] max-sm:gap-[6px] px-6 lg:px-8 py-8 lg:py-12 w-full">
             <!-- 状态标签 -->
             <div class="flex h-[29px] items-start px-[12px] py-[4px] rounded-[4px] bg-navy w-fit">
               <span class="font-semibold text-[13px] text-white whitespace-nowrap">{{ item[0] }}</span>
             </div>
 
             <!-- 标题 + 描述 -->
-            <div class="flex flex-col gap-[12px]">
+            <div class="flex flex-col gap-[8px]">
               <!-- sm+：文字揭示动效 -->
               <template v-if="!isMobile">
                 <TextReveal :stagger="0.08" :duration="0.5" :scroll-trigger="true">
-                  <p class="font-semibold text-[88px] max-lg:text-[56px] max-md:text-[40px] leading-[1.1]"
+                  <p class="font-semibold text-[32px] md:text-[36px] lg:text-[42px] leading-[1.1]"
                     style="background: linear-gradient(to bottom, #faedc5, #dbbd78); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));">
                     {{ item[2] }}</p>
                 </TextReveal>
                 <TextReveal :stagger="0.05" :duration="0.4" :scroll-trigger="true">
-                  <p class="text-[20px] max-sm:text-[14px] leading-[28px] text-white">{{ item[3] }}</p>
+                  <p class="text-[15px] md:text-[16px] leading-[22px] text-white line-clamp-2">{{ item[3] }}</p>
                 </TextReveal>
               </template>
               <!-- sm：直接渲染，不做揭示动效 -->
               <template v-else>
-                <p class="font-semibold text-[40px] leading-[1.15]"
+                <p class="font-semibold text-[36px] leading-[1.15]"
                   style="background: linear-gradient(to bottom, #faedc5, #dbbd78); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));">
                   {{ item[2] }}</p>
                 <p class="text-[14px] leading-[22px] text-white">{{ item[3] }}</p>
@@ -94,14 +92,14 @@ const grads = [
             </div>
 
             <!-- 元信息 -->
-            <div class="flex gap-[24px] max-sm:flex-col max-sm:gap-[8px]">
+            <div class="flex gap-[16px] lg:gap-[24px] max-sm:flex-col max-sm:gap-[6px]">
               <div>
-                <p class="text-[13px] text-white">举办形式</p>
-                <p class="font-semibold text-[16px] text-white whitespace-nowrap">{{ item[1] }}</p>
+                <p class="text-[12px] lg:text-[13px] text-white/80">举办形式</p>
+                <p class="font-semibold text-[14px] lg:text-[16px] text-white whitespace-nowrap">{{ item[1] }}</p>
               </div>
               <div>
-                <p class="text-[13px] text-white">时间</p>
-                <p class="font-semibold text-[16px] text-white whitespace-nowrap">{{ item[4] }}</p>
+                <p class="text-[12px] lg:text-[13px] text-white/80">时间</p>
+                <p class="font-semibold text-[14px] lg:text-[16px] text-white whitespace-nowrap">{{ item[4] }}</p>
               </div>
             </div>
 

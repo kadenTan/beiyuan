@@ -49,7 +49,7 @@ defineExpose({ doLogin })
 
 const navItems = [
   ['首页', '/'],
-  ['赛事活动', '/events'],
+  ['赛事中心', '/events'],
   ['课程中心', '/courses'],
   ['文创商城', '/mall'],
   ['存证中心', '/evidence'],

@@ -33,7 +33,7 @@ const showOnPage = computed(() => route.path !== '/auth')
           <div class="flex gap-[32px] text-[14px] text-white/85 font-light leading-[24px]">
             <div class="flex flex-col gap-[12px] whitespace-nowrap">
               <a href="/#/exhibition" class="text-white/85 hover:text-white no-underline">数字展厅</a>
-              <a href="/#/events" class="text-white/85 hover:text-white no-underline">赛事活动</a>
+              <a href="/#/events" class="text-white/85 hover:text-white no-underline">赛事中心</a>
               <a href="/#/courses" class="text-white/85 hover:text-white no-underline">课程中心</a>
             </div>
             <div class="flex flex-col gap-[12px] whitespace-nowrap">
