@@ -19,7 +19,7 @@ const filtered = computed(() => activeCat.value === '全部' ? products : produc
         <p class="font-semibold text-[56px] max-sm:text-[36px] leading-[53px] text-center whitespace-nowrap drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]"
           style="background: linear-gradient(to bottom, #faedc5, #dbbd78); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">文创商城</p>
         <p class="font-light text-[16px] max-sm:text-[14px] text-gold-light uppercase tracking-[2.88px]">MALL</p>
-        <p class="text-[16px] max-sm:text-[14px] leading-[27px] text-white/80 text-center max-w-[448px]">把优秀民族影像作品延展为可展示、可咨询、可交易的文创商品。</p>
+        <p class="text-[16px] max-sm:text-[14px] leading-[27px] text-white/80 text-center max-w-[448px]">儿童DIY手工、益智玩具与民族文创周边，让孩子在动手中感受传统文化的魅力。</p>
       </div>
     </section>
 
