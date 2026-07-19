@@ -210,6 +210,56 @@ const flowSteps = [
       </div>
     </section>
 
+    <!-- Section 5.5: 证书介绍 -->
+    <section class="px-[128px] max-lg:px-8 max-sm:px-4 py-[80px] max-sm:py-[60px] w-full bg-white">
+      <div class="max-w-[1120px] mx-auto flex flex-col gap-[60px]">
+        <!-- 标题区 -->
+        <div class="max-w-[790px] flex flex-col gap-[8px]">
+          <div class="flex items-center gap-3">
+            <img src="/assets/标题装饰（右边）.svg" alt="" class="h-[28px] w-auto opacity-60" />
+            <span class="font-semibold text-[12px] text-navy-mid uppercase">Certificate</span>
+          </div>
+          <p class="font-semibold text-[clamp(32px,4vw,64px)] leading-[1.15]" :style="{ background: GRADIENT_03, '-webkit-background-clip': 'text', '-webkit-text-fill-color': 'transparent' }">证书介绍</p>
+        </div>
+
+        <!-- 数字版权证书 -->
+        <div class="bg-white border border-border-light rounded-lg p-[49px] max-sm:p-6 flex flex-col gap-[24px] items-center w-full">
+          <h3 class="font-semibold text-[32px] max-sm:text-[26px] text-ink text-center">数字版权证书</h3>
+          <p class="text-[15px] leading-[1.8] text-ink/65 text-center max-w-[900px]">
+            数字版权证书是基于区块链技术为数字作品生成的不可篡改、可验证的权属证明文件，相当于数字作品的"电子身份证"。与传统版权登记证书不同，区块链存证证书并不直接授予版权，而是通过将作品哈希、存证主体、存证时间等关键元数据锚定在区块链上，形成具有法律效力的时间戳证明，为作品确权、授权和维权提供可信的证据支撑。依托文昌链-天舟平台，您可通过接口将图片、视频、音频、文字、代码等各类作品快速上链存证，获得包含存证ID、交易哈希、区块高度等要素的标准化存证证书，且支持单一主体或多主体联合存证，所有记录均可通过查验链接在线核验，确保证据的真实性与完整性。
+          </p>
+          <!-- 证书示例图 -->
+          <div class="flex max-sm:flex-col gap-3 items-center justify-center w-full overflow-x-auto">
+            <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[360px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
+              <img src="/assets/figma/imgWanIpQ1.png" alt="证书示例1" class="size-full object-cover" />
+            </div>
+            <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[260px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
+              <img src="/assets/figma/imgWan2.png" alt="证书示例2" class="size-full object-cover" />
+            </div>
+            <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[260px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
+              <img src="/assets/figma/imgJimeng2026062299121.png" alt="证书示例3" class="size-full object-cover" />
+            </div>
+            <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[260px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
+              <img src="/assets/figma/imgImage2.png" alt="证书示例4" class="size-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 区块链存证证书 -->
+        <div class="bg-white border border-border-light rounded-lg p-[49px] max-sm:p-6 flex flex-col gap-[24px] items-center w-full">
+          <h3 class="font-semibold text-[32px] max-sm:text-[26px] text-ink text-center">区块链存证证书</h3>
+          <div class="text-[15px] leading-[1.8] text-ink/65 text-center max-w-[900px]">
+            <p class="mb-3">您可将包括图片，视频，音频，文字、代码等作品文件数字化并在区块链上进行存证，让数字作品快速生成可溯源、可查验的可信化电子数据存证证明。</p>
+            <p>如果您是文昌链-天舟平台托管模式项目，可以使用该项目参数，通过该接口对某一类信息或文件在区块链上做存证，并且获得区块链存证证书。我们既支持单一存证主体，也支持多存证主体。</p>
+          </div>
+          <!-- 证书示例 -->
+          <div class="w-[290px] max-sm:w-[240px] aspect-[1080/1528] rounded-[10px] overflow-hidden shadow-[0_18px_49px_rgba(0,0,0,0.34)]" style="background: linear-gradient(126deg, #0b154e 0%, #214fd6 58%, #b3321f 120%)">
+            <img src="/assets/存证示例.jpg" alt="存证证书示例" class="p-[21px] size-full object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 6: CTA -->
     <section class="px-[128px] max-lg:px-8 max-sm:px-4 py-[90px] max-sm:py-14 w-full" style="background: linear-gradient(to bottom, #182aa5, #09103f)">
       <div class="max-w-[1098px] mx-auto flex items-center justify-between gap-8 max-lg:flex-col max-lg:items-start">
