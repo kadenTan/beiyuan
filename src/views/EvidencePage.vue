@@ -231,16 +231,16 @@ const flowSteps = [
           <!-- 证书示例图 -->
           <div class="flex max-sm:flex-col gap-3 items-center justify-center w-full overflow-x-auto">
             <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[360px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
-              <img src="/assets/figma/imgWanIpQ1.png" alt="证书示例1" class="size-full object-cover" />
+              <img src="/assets/数字证书示例/IMG_00001.png" alt="证书示例1" class="size-full object-contain bg-white p-2" />
             </div>
             <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[260px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
-              <img src="/assets/figma/imgWan2.png" alt="证书示例2" class="size-full object-cover" />
+              <img src="/assets/数字证书示例/IMG_00002.png" alt="证书示例2" class="size-full object-contain bg-white p-2" />
             </div>
             <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[260px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
-              <img src="/assets/figma/imgJimeng2026062299121.png" alt="证书示例3" class="size-full object-cover" />
+              <img src="/assets/数字证书示例/IMG_00003.png" alt="证书示例3" class="size-full object-contain bg-white p-2" />
             </div>
             <div class="h-[280px] max-sm:h-[200px] shrink-0 w-[260px] max-sm:w-full rounded-lg overflow-hidden border border-border-light">
-              <img src="/assets/figma/imgImage2.png" alt="证书示例4" class="size-full object-cover" />
+              <img src="/assets/数字证书示例/IMG_00004.png" alt="证书示例4" class="size-full object-contain bg-white p-2" />
             </div>
           </div>
         </div>
@@ -254,7 +254,7 @@ const flowSteps = [
           </div>
           <!-- 证书示例 -->
           <div class="w-[290px] max-sm:w-[240px] aspect-[1080/1528] rounded-[10px] overflow-hidden shadow-[0_18px_49px_rgba(0,0,0,0.34)]" style="background: linear-gradient(126deg, #0b154e 0%, #214fd6 58%, #b3321f 120%)">
-            <img src="/assets/存证示例.jpg" alt="存证证书示例" class="p-[21px] size-full object-contain" />
+            <img src="/assets/数字证书示例/IMG_00001.png" alt="存证证书示例" class="p-[21px] size-full object-contain" />
           </div>
         </div>
       </div>
