@@ -41,3 +41,9 @@
     }
   }
 }
+
+/* 自定义细滚动条 */
+.scrollbar-thin::-webkit-scrollbar { width: 4px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #d0d0d0; border-radius: 2px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #aaa; }

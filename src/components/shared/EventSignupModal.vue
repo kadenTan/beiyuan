@@ -20,7 +20,7 @@ function handleSubmit() {
 
 <template>
   <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4" @click.self="emit('close')">
-    <div class="bg-white rounded-[12px] overflow-auto max-h-[90vh] w-full max-w-[720px] relative flex flex-col gap-[24px] p-[38px] max-sm:p-[24px]">
+    <div class="bg-white rounded-[12px] overflow-y-auto max-h-[90vh] w-full max-w-[720px] relative flex flex-col gap-[24px] p-[38px] max-sm:p-[24px] scrollbar-thin">
 
       <!-- 关闭按钮 -->
       <button class="absolute right-[14px] top-[14px] size-[38px] rounded-[6px] bg-white flex items-center justify-center hover:bg-bg transition-colors" @click="emit('close')">
