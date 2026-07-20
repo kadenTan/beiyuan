@@ -36,7 +36,7 @@ async function handleRegister() {
   <div class="min-h-screen bg-bg-card flex flex-col">
     <!-- Header -->
     <header class="bg-white flex items-center px-[54px] max-lg:px-6 max-sm:px-4 h-[88px] max-sm:h-[64px] w-full border-b border-white">
-      <button @click="router.push({ name: 'auth' })" class="flex items-center gap-2 h-10 px-[18px] rounded-[40px] text-[14px] text-ink hover:bg-bg-card transition-colors">
+      <button @click="router.push({ name: 'home' })" class="flex items-center gap-2 h-10 px-[18px] rounded-[40px] text-[14px] text-ink hover:bg-bg-card transition-colors">
         <svg class="size-[15px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>
         返回
       </button>
