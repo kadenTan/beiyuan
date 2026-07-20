@@ -45,7 +45,8 @@ async function handleRegister() {
     </header>
 
     <!-- 主内容 -->
-    <div class="flex-1 flex items-center justify-center px-6 pb-20 pt-12">
+    <div class="flex-1 flex flex-col items-center justify-center px-6 pb-20 pt-12 gap-10">
+      <!-- 注册表单 -->
       <div class="bg-white rounded-xl max-w-[470px] w-full px-8 py-9 max-sm:px-5 max-sm:py-6">
         <p class="font-semibold text-[32px] text-blue text-center mb-8">注册</p>
 
@@ -77,13 +78,18 @@ async function handleRegister() {
             <p v-if="registerErrors.confirmPassword" class="text-[12px] text-accent">{{ registerErrors.confirmPassword }}</p>
           </div>
 
-          <!-- 绑定网盘 -->
-          <div class="flex flex-col gap-3">
-            <p class="font-semibold text-[14px] text-ink">绑定网盘</p>
-            <div class="size-[128px] rounded overflow-hidden border border-[#ddd]">
-              <img src="/assets/cQR.png" alt="网盘扫码" class="size-full object-cover" />
+          <!-- 网盘绑定 — 非必须，推荐引导 -->
+          <div class="flex flex-col gap-3 p-4 rounded-lg border border-blue-pale bg-gradient-to-br from-white to-bg-card">
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-[14px] text-navy">绑定网盘（推荐）</p>
+              <span class="text-[11px] text-muted bg-bg-card rounded-full px-2 py-0.5">可跳过</span>
             </div>
-            <p class="text-[12px] text-muted">请使用网盘客户端扫描二维码完成绑定</p>
+            <div class="flex items-center gap-4">
+              <div class="size-[96px] rounded-lg overflow-hidden border border-border-light shrink-0">
+                <img src="/assets/cQR.png" alt="网盘扫码" class="size-full object-cover" />
+              </div>
+              <p class="text-[12px] text-muted leading-[1.6]">扫码绑定即可获得 100G 云端存储容量，解锁文件管理服务</p>
+            </div>
           </div>
 
           <p v-if="registerErrors.api" class="text-[13px] text-accent">{{ registerErrors.api }}</p>
@@ -113,6 +119,59 @@ async function handleRegister() {
             <router-link to="/auth" class="text-blue hover:underline">去登录</router-link>
           </p>
         </form>
+      </div>
+
+      <!-- 绑定网盘权益说明 -->
+      <div class="bg-white rounded-xl max-w-[470px] w-full px-8 py-8 max-sm:px-5 max-sm:py-6">
+        <h3 class="font-bold text-[20px] text-ink mb-6">绑定网盘权益说明</h3>
+        <div class="flex flex-col gap-5">
+          <!-- 权益 1 -->
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="size-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7M4 7c0-2 1-3 3-3h10c2 0 3 1 3 3M4 7h16M9 11h6"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[15px] text-ink">绑定即赠送 100G 永久云端储存容量</p>
+              <p class="text-[13px] text-muted mt-1 leading-[1.6]">平台内考生学习资料、电子证书、报名订单、考试档案均可云端存放，不占用本地电脑硬盘，海量业务文件无存储压力。</p>
+            </div>
+          </div>
+          <!-- 权益 2 -->
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="size-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[15px] text-ink">全量云端自动备份，杜绝数据丢失</p>
+              <p class="text-[13px] text-muted mt-1 leading-[1.6]">系统定时同步全部业务文件，电脑损坏、文件误删都不用担心考生档案遗失，重要资料永久留存可随时调取。</p>
+            </div>
+          </div>
+          <!-- 权益 3 -->
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="size-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[15px] text-ink">解锁批量高效办公核心功能</p>
+              <p class="text-[13px] text-muted mt-1 leading-[1.6]">未绑定网盘无法使用批量导出考生信息、批量打包证书、多设备文件同步功能，绑定后几十万条考生数据一键整理，大幅提升办公效率。</p>
+            </div>
+          </div>
+          <!-- 权益 4 -->
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="size-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[15px] text-ink">独立加密私有云，合规保护考生隐私</p>
+              <p class="text-[13px] text-muted mt-1 leading-[1.6]">专属独立云存储空间，文件加密隔离，仅登录您本人账号才可查看下载，符合考生信息数据安全存储规范。</p>
+            </div>
+          </div>
+
+          <!-- 操作指引 -->
+          <div class="mt-3 p-4 rounded-lg bg-bg-card border border-blue-pale">
+            <p class="font-semibold text-[14px] text-navy mb-2">操作指引</p>
+            <p class="text-[13px] text-muted leading-[1.7]">请使用网盘客户端扫描上方二维码完成绑定，绑定成功立即生效 100G 存储权益，解锁平台全部文件管理服务。</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
