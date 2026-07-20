@@ -84,9 +84,9 @@ const courses = (siteContent.courses || []).slice(0, 4)
 // 我的赛事数据（带赛道和进程节点）
 const memberEvents = ref([
   {
-    name: '中国红色文化传承与实践大赛',
-    track: '红色文化知识挑战赛',
-    desc: '一个比赛所谓赛道就是不同的比赛方向，本赛道聚焦红色文化知识的数字化创作与传播。',
+    name: '民族影像 AIGC 创作大赛',
+    track: 'AIGC视觉创作赛道',
+    desc: '聚焦民族文化的数字化表达与AI智能创作，参赛者通过AIGC工具生成具有民族文化特色的影像作品。',
     status: '进行中',
     node: { label: '提交资料', action: 'upload' },
     color: '#b3321f',
