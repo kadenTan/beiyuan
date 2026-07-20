@@ -63,11 +63,11 @@ function goToList() {
               <p class="text-[16px] text-muted mt-[4px] leading-[25.6px]">{{ lead[2] }}</p>
             </div>
             <!-- 指示器 -->
-            <div class="flex gap-[2px] items-center justify-center pb-[16px]">
-              <span class="size-[16px] rounded-full bg-accent" />
-              <span class="size-[16px] rounded-full bg-[#ddd]" />
-              <span class="size-[16px] rounded-full bg-[#ddd]" />
-              <span class="size-[16px] rounded-full bg-[#ddd]" />
+            <div class="flex gap-[6px] items-center justify-center pb-[16px]">
+              <span class="w-[24px] h-[3px] rounded-full bg-accent transition-all" />
+              <span class="w-[8px] h-[3px] rounded-full bg-[#ccc] transition-all" />
+              <span class="w-[8px] h-[3px] rounded-full bg-[#ccc] transition-all" />
+              <span class="w-[8px] h-[3px] rounded-full bg-[#ccc] transition-all" />
             </div>
           </article>
         </div>
