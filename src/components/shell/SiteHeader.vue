@@ -104,7 +104,7 @@ function closeMenu(href) {
       <div v-else class="relative user-dropdown-area inline-flex">
         <div class="inline-flex items-center h-[40px] rounded-[31px] border-[0.6px] border-ink whitespace-nowrap hover:bg-bg-card transition-colors">
           <a href="/#/member" class="flex items-center gap-2 h-full pl-4 pr-1 text-[14px] text-ink no-underline cursor-pointer">
-            <img src="/assets/logo.png" alt="" class="size-5 rounded-full" />
+            <img src="/assets/avater.png" alt="" class="size-5 rounded-full" />
             <span>已登陆</span>
           </a>
           <button
@@ -195,7 +195,7 @@ function closeMenu(href) {
           <div v-else class="flex flex-col gap-3">
             <div class="flex items-center justify-between px-1">
               <div class="flex items-center gap-3">
-                <img src="/assets/logo.png" alt="" class="size-8 rounded-full" />
+                <img src="/assets/avater.png" alt="" class="size-8 rounded-full" />
                 <div>
                   <p class="text-[15px] font-medium text-white">已登陆</p>
                   <p class="text-[12px] text-white/50">微信登录</p>
