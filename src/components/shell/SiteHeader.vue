@@ -83,8 +83,8 @@ function closeMenu(href) {
       <img src="/assets/logo.png" alt="贝元民族影像智创平台" class="h-9 w-auto rounded-md" />
     </router-link>
 
-    <!-- Desktop Nav — 仅在 lg+ 显示 -->
-    <nav class="hidden lg:flex flex-1 gap-[28px] items-center justify-center min-w-0 px-[40px]" aria-label="主导航">
+    <!-- Desktop Nav — 仅在 xl+ 显示 -->
+    <nav class="hidden xl:flex flex-1 gap-[24px] xl:gap-[28px] items-center justify-center min-w-0 px-[24px] xl:px-[40px]" aria-label="主导航">
       <a
         v-for="[label, href] in navItems"
         :key="href"
@@ -95,8 +95,8 @@ function closeMenu(href) {
       >{{ label }}</a>
     </nav>
 
-    <!-- Desktop 用户区 — 仅在 lg+ 显示 -->
-    <div class="hidden lg:flex items-center shrink-0">
+    <!-- Desktop 用户区 — 仅在 xl+ 显示 -->
+    <div class="hidden xl:flex items-center shrink-0">
       <!-- 未登录 -->
       <a v-if="!user" href="/#/auth" class="no-underline cursor-pointer flex items-center justify-center h-[40px] px-[16.6px] py-[0.6px] rounded-[31px] border-[0.6px] border-ink text-[14px] text-ink whitespace-nowrap">登录/注册</a>
 
@@ -125,9 +125,9 @@ function closeMenu(href) {
       </div>
     </div>
 
-    <!-- Mobile Hamburger — lg 以下显示 -->
+    <!-- Mobile Hamburger — xl 以下显示 -->
     <button
-      class="lg:hidden ml-auto p-2 text-ink"
+      class="xl:hidden ml-auto p-2 text-ink"
       @click="menuOpen = !menuOpen"
       aria-label="菜单"
     >
@@ -142,7 +142,7 @@ function closeMenu(href) {
   <Transition name="menu">
     <div
       v-if="menuOpen"
-      class="fixed inset-0 z-40 lg:hidden"
+      class="fixed inset-0 z-40 xl:hidden"
       @click="closeMenu"
     >
       <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" @click="closeMenu()" />
