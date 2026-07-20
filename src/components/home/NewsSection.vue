@@ -65,9 +65,9 @@ function goToList() {
             <!-- 指示器 -->
             <div class="flex gap-[6px] items-center justify-center pb-[16px]">
               <span class="w-[24px] h-[3px] rounded-full bg-accent transition-all" />
-              <span class="w-[8px] h-[3px] rounded-full bg-[#ccc] transition-all" />
-              <span class="w-[8px] h-[3px] rounded-full bg-[#ccc] transition-all" />
-              <span class="w-[8px] h-[3px] rounded-full bg-[#ccc] transition-all" />
+              <span class="w-[8px] h-[3px] rounded-full bg-border-light transition-all" />
+              <span class="w-[8px] h-[3px] rounded-full bg-border-light transition-all" />
+              <span class="w-[8px] h-[3px] rounded-full bg-border-light transition-all" />
             </div>
           </article>
         </div>
