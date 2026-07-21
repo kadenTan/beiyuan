@@ -52,9 +52,9 @@ const showOnPage = computed(() => route.path !== '/auth')
       <div class="flex flex-col gap-[12px] text-[14px] text-white/85 items-center md:items-start">
         <p class="font-semibold">联系方式</p>
         <div class="flex flex-col gap-[12px] font-light whitespace-nowrap text-center md:text-left">
-          <p>联系方式：400-6620-2845</p>
-          <p>联系地址：甘肃省兰州市城关区民族影像产业科创中心</p>
-          <p>客服邮箱：service@beiyuan-aigc.com</p>
+          <p>联系电话：17810277492</p>
+          <p>联系地址：北京市西城区长安兴融中心南楼810室</p>
+          <p>联系邮箱：46482926@qq.com</p>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ const showOnPage = computed(() => route.path !== '/auth')
 
     <!-- ICP -->
     <p class="font-light text-[14px] text-white text-center px-6">
-      备案信息：陇ICP备2026008888号-1
+      京ICP备2026043626号-1
     </p>
   </footer>
 </template>
